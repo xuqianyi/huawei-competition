@@ -25,11 +25,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
-
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" media="print" onload="this.media='all'"/>
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"/>
+    </noscript>
+    <noscript>
+      <style type="text/css">
+        [data-aos] {
+            opacity: 1 !important;
+            transform: translate(0) scale(1) !important;
+        }
+      </style>
+    </noscript>
 </head>
 
 <body class="sub_page">
@@ -128,55 +142,70 @@
     </header>
     <!-- end header section -->
   </div>
-  <section class="service_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center ">
-        <h2 class="">
-          Take Tests from Our Infinite Question Bank
-        </h2>
-        <p class="col-lg-8 px-0">
-          Question bank supported by 10,000+ real-world cases and our Generative Al model ...
-        </p>
-        <p class="col-lg-8 px-0">
-          Can always generate new tests for you.
-        </p>
-        <p class="col-lg-8 px-0">
-          Set up number of questions in this quiz:
-        </p>
-        <form action="">
-          
-          <div class="form-row">
-            
-            <!-- <div class="form-group col-lg-6"> -->
-              <select name="" id="" class="form-control wide">
-                <option value="">0</option>
-                <option value="">20</option>
-                <option value="">50</option>
-                <option value="">100</option>
-              </select>
-            <!-- </div> -->
+  <div class="shadow-1-strong bg-white my-5 p-5" id="experience">
+    <div class="education-section">
+      <h2 class="h2 fw-light mb-4">Experience</h2>
+      <div class="timeline">
+        <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="0">
+          <div class="timeline-head px-4 pt-3">
+            <div class="h5"><a href="https://summer.epfl.ch/" style="color: #2db684;">Summer@EPFL</a> Fellow <span class="text-muted h6"> <a href="https://vilab.epfl.ch/" style="color: #2db684;">Visual Intelligence and Learning Lab, Swiss Federal Institute of Technology Lausanne</a></span>          </div>
           </div>
-          <!-- <div class="form-row">
-            <div class="form-group col">
-              <input type="email" class="form-control" placeholder="Email" />
+          <div class="timeline-body px-4 pb-4">
+            <div class="text-muted text-small mb-3">Jun 2022 - Present, Lausanne</div>
+            <div>
+             Created a pipeline to collect data in an <a href="https://aihabitat.org/" style="color: #2db684;">embodied AI simulation platform</a>.
+             The collected data are utilized for multi-frame depth estimation with a convLSTM recurrent model.
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group col">
-              <input type="text" class="message-box form-control" placeholder="Message" />
-            </div>
-          </div> -->
-          <div class="btn_box">
-            <button>
-              <a href="test_sub1.html" style="color: white;">
-                SEND
-              </a>
-            </button>
+        </div>
+        <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="200">
+          <div class="timeline-head px-4 pt-3">
+            <div class="h5">Research Assistant <span class="text-muted h6"> <a href="https://xulabs.github.io/" style="color: #2db684;">Xu Lab, Carnegie Mellon University</a></span>          </div>
           </div>
-        </form>
+          <div class="timeline-body px-4 pb-4">
+            <div class="text-muted text-small mb-3">Feb 2022 - Sep 2022, Remote</div>
+            <div>Built a novel pipeline for single-cell segmentation. </div>
+          </div>
+        </div>
+        <!-- <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="400">
+          <div class="timeline-head px-4 pt-3">
+            <div class="h5">Research Intern <span class="text-muted h6">CHI Lab, University of Oxford</span>          </div>
+          </div>
+          <div class="timeline-body px-4 pb-4">
+            <div class="text-muted text-small mb-3">Feb 2022 - Present, Remote</div>
+            <div>Developed generative models for medical data analysis and synthesis.</div>
+          </div>
+        </div> -->
+        <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="400">
+          <div class="timeline-head px-4 pt-3">
+            <div class="h5">Research Intern <span class="text-muted h6"><a href="https://www.huawei.com/sg/" style="color: #2db684;">HiSilicon, Huawei Singapore Research Center</a></span>          </div>
+          </div>
+          <div class="timeline-body px-4 pb-4">
+            <div class="text-muted text-small mb-3">Dec 2021 - May 2022, Singapore</div>
+            <div>Built multiple models to predict blood pressure using ECG and PPG signals trained using <a href="https://physionet.org/content/mimic3wdb/1.0/" style="color: #2db684;">MIMIC III waveform dataset</a>.</div>
+          </div>
+        </div>
+        <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="400">
+          <div class="timeline-head px-4 pt-3">
+            <div class="h5">Research Intern <span class="text-muted h6"><a href="https://www.a-star.edu.sg/i2r" style="color: #2db684;">Institute for Infocomm Research, Agency for Science Technology and Research</a></span>          </div>
+          </div>
+          <div class="timeline-body px-4 pb-4">
+            <div class="text-muted text-small mb-3">Aug 2020 - Present, Singapore</div>
+            <div>Developed developed a task-agnostic algorithm for online continual learning that can preserve information privacy.</div>
+          </div>
+        </div>
+        <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="400">
+          <div class="timeline-head px-4 pt-3">
+            <div class="h5">Research Assistant <span class="text-muted h6"><a href="https://personal.ntu.edu.sg/acyucel/" style="color: #2db684;">Nanyang Technological University</a></span>          </div>
+          </div>
+          <div class="timeline-body px-4 pb-4">
+            <div class="text-muted text-small mb-3">Sep 2020 - Apr 2022, Singapore</div>
+            <div>Built a surrogate model for transcranial direct current stimulation simulation using machine learning and <a href="https://simnibs.github.io/simnibs/build/html/index.html" style="color: #2db684;">SimNIBS</a>.</div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- info section -->
   <section class="info_section ">
