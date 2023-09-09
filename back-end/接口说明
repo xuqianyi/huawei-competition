@@ -1,0 +1,32 @@
+抽选题目
+    test.html -> url/test
+        前端发送：使用POST请求发送Form数据：
+                               字段名numQuestions：需要抽取题的个数
+        后端发送：json格式数据，{"code": 0/1, "message": message text, "data": [{"id": question_id, "points":
+        [list of data points], "correct_answer": true label of the data}]}
+
+上传/获取错题
+    上传：
+        前端发送：使用POST请求发送Form数据：
+                                字段名mistakes：错题的列表，
+                                字段名uid：用户id
+        后端发送：{"code": 0/1, "message": text message}
+
+    获取
+        前端发送：使用POST请求发送Form数据：
+                                字段名uid：用户id
+        后端发送：json格式数据，{"code": 0/1, "message": message text, "uid": user_id, mistakes: [list of
+    mistake id]}
+
+上传/获取favorites
+    上传：
+        前端发送：使用POST请求发送Form数据：
+                                字段名favorites：错题的列表，
+                                字段名uid：用户id
+        后端发送：{"code": 0/1, "message": text message}
+
+    获取
+        前端发送：使用POST请求发送Form数据：
+                                字段名uid：用户id
+        后端发送：json格式数据，{"code": 0/1, "message": message text, "uid": user_id, favorites: [list of
+    favorite id]}
