@@ -1,12 +1,19 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from mysql_operator import *
 from numpy import load
 import re
 
 app = Flask(__name__)
+@app.route("/")
+def home():
+    return render_template('test.html')
+
+# @app.route("/test", methods=['GET'])
+# def test():
+#     return render_template('test.html')
 
 # 选择题目，返回题目
-@app.route('/test', methods=['POST'])
+@app.route('/start_test', methods=['POST', 'GET'])
 def start_testing():  # put application's code here
     num_question = int(request.form["numQuestions"])
     questions = randomly_select_data(num_question)
@@ -14,7 +21,7 @@ def start_testing():  # put application's code here
         return jsonify({"code": -1, "message": "Don't have enough data", "data":{}})
     return_dict = {"code": 0, "message": "Success", "data": []}
     for i in range(len(questions)):
-        question_path = "npy_files/row_" + str(questions[i][0]) + ".npy"
+        question_path = "/Users/qianyi/projects/huawei-competition/back-end/npy_files/row_" + str(questions[i][0]) + ".npy"
         data = load(question_path)
         return_dict["data"].append({"id": questions[i][0],
                                     "points": list(data),
@@ -61,7 +68,7 @@ def get_favorites():
     questions = select_favorites(uid)
     return_dict = {"code": 0, "message": "Success", "data": []}
     for i in range(len(questions)):
-        question_path = "npy_files/row_" + str(questions[i][0]) + ".npy"
+        question_path = "/Users/qianyi/projects/huawei-competition/back-end/npy_files/row_" + str(questions[i][0]) + ".npy"
         data = load(question_path)
         return_dict["data"].append({"id": questions[i][0],
                                     "points": list(data),
@@ -69,4 +76,4 @@ def get_favorites():
     return jsonify(return_dict)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host= '0.0.0.0',debug=True)

@@ -4,7 +4,7 @@ host = "127.0.0.1"
 port = 3306
 db_name = "HUAWEI"
 user_name = "root"
-password = "QWSqws0710@"
+password = "26122000"
 
 def test():
     conn = create_connection()
