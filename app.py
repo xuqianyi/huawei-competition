@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template,redirect
 from mysql_operator import *
 from numpy import load
 import re
@@ -6,28 +6,26 @@ import re
 app = Flask(__name__)
 @app.route("/")
 def home():
-    return render_template('test.html')
+    return render_template('index.html')
 
-# @app.route("/test", methods=['GET'])
-# def test():
-#     return render_template('test.html')
-
-# 选择题目，返回题目
-@app.route('/start_test', methods=['POST', 'GET'])
-def start_testing():  # put application's code here
-    num_question = int(request.form["numQuestions"])
-    questions = randomly_select_data(num_question)
-    if len(questions) < num_question:
-        return jsonify({"code": -1, "message": "Don't have enough data", "data":{}})
-    return_dict = {"code": 0, "message": "Success", "data": []}
-    for i in range(len(questions)):
-        question_path = "/Users/qianyi/projects/huawei-competition/back-end/npy_files/row_" + str(questions[i][0]) + ".npy"
-        data = load(question_path)
-        return_dict["data"].append({"id": questions[i][0],
-                                    "points": list(data),
-                                    "correct_answer": questions[i][1]})
-    return jsonify(return_dict)
-
+@app.route("/test", methods=['POST', 'GET'])
+def test():
+    if request.method == 'POST':
+        num_question = int(request.form["numQuestions"])
+        questions = randomly_select_data(num_question)
+        if len(questions) < num_question:
+            return jsonify({"code": -1, "message": "Don't have enough data", "data":{}})
+        return_dict = {"code": 0, "message": "Success", "data": []}
+        for i in range(len(questions)):
+            question_path = "back-end/npy_files/row_" + str(questions[i][0]) + ".npy"
+            data = load(question_path)
+            return_dict["data"].append({"id": questions[i][0],
+                                        "points": list(data),
+                                        "correct_answer": questions[i][1]})
+        # print(num_question)
+        return redirect('')
+    else:
+        return render_template('test.html')
 
 # 上传错题
 @app.route('/upload_mistakes', methods=['POST'])
