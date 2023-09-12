@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Choice Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Multiple Choice Questionnaire</h2>
+    
+    <div id="question page">
+        <!-- Questions will be populated here by JavaScript -->
+    </div>
+
+    <script>
+        // Questions and options stored in variables
+        var questions = [
+            {
+                text: "1=?",
+                options: ["0", "1", "2", "3"],
+                myAnswer: null,
+                answer: 1
+            },
+            {
+                text: "2=?",
+                options: ["0", "1", "2", "3"],
+                myAnswer: null,
+                answer: 2
+            },
+            {
+                text: "3=?",
+                options: ["0", "1", "2", "3"],
+                myAnswer: null,
+                answer: 3
+            },
+        ];
+        var index = 0;
+
+        function createQuestionDiv() {
+            const questionDiv = document.createElement('div');
+            const questionText = document.createElement('p');
+            const question = questions[index];
+            questionText.textContent = (index + 1) + '. ' + question.text;
+            questionDiv.appendChild(questionText);
+            questionDiv.id = 'questionsContainer';
+
+            question.options.forEach((option, i) => {
+                const label = document.createElement('label');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = 'q' + (index + 1);
+                radio.value = option;
+                radio.id = i;
+                if (question.myAnswer == i) {
+                    radio.checked = true;
+                }
+                label.appendChild(radio);
+                label.appendChild(document.createTextNode(' ' + option));
+                questionDiv.appendChild(label);
+                questionDiv.appendChild(document.createElement('br'));
+            });
+
+            const wrapperDiv = document.createElement('div');
+            wrapperDiv.id = 'wrapper';
+            wrapperDiv.appendChild(questionDiv);
+            if (index != 0) {
+                const lastPageDiv = document.createElement('div');
+                const last_page = document.createElement('input');
+                last_page.type = 'button';
+                last_page.value = "Last Page";
+                last_page.onclick = () => goToNextPage(-1);
+                lastPageDiv.appendChild(last_page);
+                wrapperDiv.appendChild(lastPageDiv);
+            }
+
+            const nextPageDiv = document.createElement('div');
+            const next_page = document.createElement('input');
+            next_page.type = 'button';
+            if (index == questions.length - 1) {
+                next_page.value = 'finish all';
+                next_page.onclick = finishAll;
+            } else {
+                next_page.value = 'Next Page';
+                next_page.onclick = () => goToNextPage(1);
+            }
+            nextPageDiv.appendChild(next_page);
+            wrapperDiv.appendChild(nextPageDiv);
+
+            return wrapperDiv;
+        }
+
+        // Function to populate the questions
+        function init() {
+            const container = document.getElementById('question page');
+            
+            const div = createQuestionDiv();
+            container.appendChild(div);
+        }
+
+        function updateAnswer() {
+            var q = document.querySelector('input[name="q' + (index + 1) + '"]:checked');
+            questions[index].myAnswer = q ? q.id : null;
+        }
+
+
+        function goToNextPage(n) {
+            updateAnswer();
+            index = index + n;
+            const container = document.getElementById('wrapper');
+            
+            const div = createQuestionDiv();
+            container.parentNode.replaceChild(div, container);
+        }
+
+        function finishAll() {
+            updateAnswer();
+            s = '';
+            questions.forEach((q, i) => {
+                s += 'problem ' + 'i: your answer is ' + q.myAnswer + ', the true answer is ' + q.answer + '\n';
+            })
+            alert(s);
+        }
+
+        // Call the function to populate questions on page load
+        init();
+    </script>
+</body>
+</html>
