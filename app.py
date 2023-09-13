@@ -11,19 +11,19 @@ def home():
 @app.route("/test", methods=['POST', 'GET'])
 def test():
     if request.method == 'POST':
-        num_question = int(request.form["numQuestions"])
-        questions = randomly_select_data(num_question)
-        if len(questions) < num_question:
-            return jsonify({"code": -1, "message": "Don't have enough data", "data":{}})
-        return_dict = {"code": 0, "message": "Success", "data": []}
-        for i in range(len(questions)):
-            question_path = "back-end/npy_files/row_" + str(questions[i][0]) + ".npy"
-            data = load(question_path)
-            return_dict["data"].append({"id": questions[i][0],
-                                        "points": list(data),
-                                        "correct_answer": questions[i][1]})
+        # num_question = int(request.form["numQuestions"])
+        # questions = randomly_select_data(num_question)
+        # if len(questions) < num_question:
+        #     return jsonify({"code": -1, "message": "Don't have enough data", "data":{}})
+        # return_dict = {"code": 0, "message": "Success", "data": []}
+        # for i in range(len(questions)):
+        #     question_path = "back-end/npy_files/row_" + str(questions[i][0]) + ".npy"
+        #     data = load(question_path)
+        #     return_dict["data"].append({"id": questions[i][0],
+        #                                 "points": list(data),
+        #                                 "correct_answer": questions[i][1]})
         # print(num_question)
-        return redirect('')
+        return redirect('quiz.html')
     else:
         return render_template('test.html')
 
@@ -74,4 +74,5 @@ def get_favorites():
     return jsonify(return_dict)
 
 if __name__ == '__main__':
+    conn = create_connection()
     app.run(host= '0.0.0.0',debug=True)
