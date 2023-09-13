@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Choice Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+    <link href="../static/assets/css/quizStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Multiple Choice Questionnaire</h2>
+    
+    <div id="question page">
+        <!-- Questions will be populated here by JavaScript -->
+    </div>
+
+
+    <div id="favorite">
+        <input id="favorite-button" type="button" value="favorite" onclick=favorite_question()>
+        </input>
+    </div>
+
+    <div id="feedback">
+        <input type="button" value="feedback" onclick=openModal()>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Please tell us your feedback for this question</h2>
+                <input type="text" id="textInput">
+                <button onclick="submitFeedback()">Submit</button>
+            </div>
+          </div>
+    </div>
+
+    <script>
+        // Questions and options stored in variables
+        let raw_questions = {{ returnQuestions|safe }};
+        var questions = [];
+        var index = 0;
+        var wrong_id = new Set();
+        var favorite_id = new Set();
+
+        function favorite_question() {
+            if (favorite_id.has(questions[index].id)) {
+                document.getElementById("favorite-button").classList.remove("red");
+                favorite_id.delete(questions[index].id);
+            } else {
+                document.getElementById("favorite-button").classList.add("red");
+                favorite_id.add(questions[index].id);
+            }
+        }
+
+        function input_feedback() {
+            document.getElementById("feedback-input").classList.remove("hidden");
+        }
+
+        function judge() {
+            var q = document.querySelector('input[name="q' + (index + 1) + '"]:checked');
+            if (q == null) {
+                return;
+            }
+            questions[index].myAnswer = q.id;
+            if (questions[index].myAnswer == questions[index].answer) {
+                alert("correct");
+            } else {
+                alert("wrong, the right answer is option " + (questions[index].answer + 1));
+                wrong_id.add(questions[index].id);
+            }
+        }
+
+        function createQuestionDiv() {
+            const questionDiv = document.createElement('div');
+            const questionText = document.createElement('p');
+            const question = questions[index];
+            questionText.textContent = (index + 1) + '. Please select the type of abnormality present in the electrocardiogram below';
+            questionDiv.appendChild(questionText);
+            questionDiv.id = 'questionsContainer';
+            const picture = document.createElement('img');
+            picture.src = question.text;
+            picture.alt = "Cheetah!";
+            questionDiv.appendChild(picture);
+            const p = document.createElement('p');
+            questionDiv.appendChild(p);
+
+            question.options.forEach((option, i) => {
+                const label = document.createElement('label');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = 'q' + (index + 1);
+                radio.value = option;
+                radio.id = i;
+                radio.onclick = judge;
+                label.appendChild(radio);
+                label.appendChild(document.createTextNode(' ' + option));
+                questionDiv.appendChild(label);
+                questionDiv.appendChild(document.createElement('br'));
+            });
+
+            const wrapperDiv = document.createElement('div');
+            wrapperDiv.id = 'wrapper';
+            wrapperDiv.appendChild(questionDiv);
+
+            const nextPageDiv = document.createElement('div');
+            const next_page = document.createElement('input');
+            next_page.type = 'button';
+            if (index == questions.length - 1) {
+                next_page.value = 'finish all';
+                next_page.onclick = finishAll;
+            } else {
+                next_page.value = 'Next Page';
+                next_page.onclick = () => goToNextPage(1);
+            }
+            nextPageDiv.appendChild(next_page);
+            wrapperDiv.appendChild(nextPageDiv);
+            return wrapperDiv;
+        }
+
+        // Function to populate the questions
+        function init() {
+            const container = document.getElementById('question page');
+            raw_questions.forEach((q) => {
+                console.log(q);
+                questions.push({
+                    id: q['id'],
+                    text: q['pictureUrl'],
+                    options: q['options'],
+                    answer: q['correct_answer']
+                });
+            });
+            console.log(questions);
+            const div = createQuestionDiv();
+            container.appendChild(div);
+        }
+
+        function updateAnswer() {
+            var q = document.querySelector('input[name="q' + (index + 1) + '"]:checked');
+            questions[index].myAnswer = q ? q.id : null;
+        }
+
+
+        function goToNextPage(n) {
+            var q = document.querySelector('input[name="q' + (index + 1) + '"]:checked');
+            if (q == null) {
+                return;
+            }
+            index = index + n;
+            const container = document.getElementById('wrapper');
+
+            const div = createQuestionDiv();
+            container.parentNode.replaceChild(div, container);
+        }
+
+        function finishAll() {
+            updateAnswer();
+            var XHR = new XMLHttpRequest();
+            var FD = new FormData();
+
+            FD.append("favorites", JSON.stringify(Array.from(favorite_id)));  // 使用JSON.stringify将数组转为字符串
+            FD.append("wrong", JSON.stringify(Array.from(wrong_id)));  // 同上
+            FD.append("score", 100 * (questions.length - wrong_id.size) / questions.length);
+
+            XHR.open("POST", "http://127.0.0.1:5000/quiz/1");
+
+            // 添加事件监听器处理响应
+            XHR.onload = function() {
+                if (XHR.status >= 200 && XHR.status < 400) {
+                // 请求成功，进行页面跳转
+                    window.location.href = XHR.responseURL;
+                } else {
+                    console.error("Server responded with an error:", XHR.responseText);
+                }
+            };
+
+            XHR.onerror = function() {
+                console.error("There was an error with the request.");
+            };
+
+            XHR.send(FD);
+        }
+
+        // Call the function to populate questions on page load
+        init();
+    </script>
+</body>
+</html>

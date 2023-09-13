@@ -30,7 +30,7 @@ def create_connection():
 def randomly_select_data(num_question):
     conn = create_connection()
     with conn.cursor() as cursor:
-        sql = "SELECT question_id, correct_answer FROM Questions ORDER BY RAND() LIMIT %s;"
+        sql = "SELECT question_id, picture_url, correct_answer FROM Questions ORDER BY RAND() LIMIT %s;"
         cursor.execute(sql, num_question)
         data = cursor.fetchall()
     conn.close()
