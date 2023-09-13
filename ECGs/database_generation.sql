@@ -13,7 +13,7 @@ CREATE TABLE Users (
 CREATE TABLE Questions (
 	PRIMARY KEY (question_id),
     question_id SMALLINT(5) UNSIGNED AUTO_INCREMENT,
-    file_name VARCHAR(255),
+    picture_url VARCHAR(255),
     correct_answer SMALLINT(2) UNSIGNED
 );
 
@@ -32,12 +32,9 @@ CREATE TABLE Favorites (
     question_id SMALLINT(5) UNSIGNED
 );
 
-CREATE TABLE test (
-	PRIMARY KEY (question_id),
-    question_id SMALLINT(5) UNSIGNED AUTO_INCREMENT,
-    correct_answer SMALLINT(2) UNSIGNED
-);
-
-INSERT INTO test (question_id, correct_answer) VALUES (1, 1), (2, 10), (3, 12), (4, 38), (5, 12);
-
-        
+INSERT INTO Questions(picture_url, correct_answer) VALUES 
+('https://obs-dc4c.obs.ap-southeast-3.myhuaweicloud.com/ECGS/row_1.png', 1), 
+('https://obs-dc4c.obs.ap-southeast-3.myhuaweicloud.com/ECGS/row_2.png', 10), 
+('https://obs-dc4c.obs.ap-southeast-3.myhuaweicloud.com/ECGS/row_3.png', 12), 
+('https://obs-dc4c.obs.ap-southeast-3.myhuaweicloud.com/ECGS/row_4.png', 38), 
+('https://obs-dc4c.obs.ap-southeast-3.myhuaweicloud.com/ECGS/row_5.png', 12);
