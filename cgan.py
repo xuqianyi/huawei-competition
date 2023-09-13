@@ -24,7 +24,7 @@ parser.add_argument("--n_classes", type=int, default=44, help="number of classes
 parser.add_argument("--img_size", type=int, default=1000, help="size of each image dimension")
 parser.add_argument("--channels", type=int, default=12, help="number of image channels")
 parser.add_argument("--sample_interval", type=int, default=400, help="interval between image sampling")
-parser.add_argument("--data_path", type=str, default="/data/lanx/ecgs/processed/Diagnostic/data/val.pt")
+parser.add_argument("--data_path", type=str, default="/User/qianyi/projects/huawei-competition/val.pt")
 opt = parser.parse_args()
 print(opt)
 
@@ -105,10 +105,6 @@ dataloader = get_dataset(opt.data_path)
 # Optimizers
 optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
 optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
-
-FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
-LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
-
 
 # ----------
 #  Training

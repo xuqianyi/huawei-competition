@@ -1,7 +1,8 @@
-from flask import Flask, request, jsonify, render_template,redirect
+from flask import Flask, request, jsonify, render_template,redirect, url_for
 from mysql_operator import *
 from numpy import load
 import re
+from datetime import datetime as dt
 
 app = Flask(__name__)
 @app.route("/")
@@ -26,6 +27,27 @@ def test():
         return redirect('')
     else:
         return render_template('test.html')
+
+@app.route("/plan_main", methods=['POST', 'GET'])
+def plan_main():
+    if request.method == 'POST':
+        start_date = request.form["start_date"]
+        end_date = request.form["end_date"]
+        days = (dt.strptime(end_date, "%Y-%m-%d") - dt.strptime(start_date, "%Y-%m-%d")).days
+        num_qn = int(request.form["numQuestions"])
+        # insert_plan(num_qn, start_date, end_date, days)
+        return redirect(url_for("my_plan", plan_days=days))
+    else:
+        return render_template('plan_main.html')
+
+@app.route("/my_plan/<plan_days>", methods=['POST', 'GET'])
+def my_plan(plan_days):
+    return render_template('my_plan.html', days=plan_days)
+
+@app.route("/learn", methods=['POST', 'GET'])
+def learn():
+    return render_template('learn.html')
+
 
 # 上传错题
 @app.route('/upload_mistakes', methods=['POST'])

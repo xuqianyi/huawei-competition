@@ -57,7 +57,7 @@
                   <a class="nav-link" href="#about_section"> About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="chapter_1">Learn</a>
+                  <a class="nav-link" href="learn">Learn</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="test">Test</a>
@@ -65,8 +65,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="plan_main">Study Plan</a>
                 </li>
+                
                 <li class="nav-item">
-                  <a class="nav-link" href="#team_section">Contact Us</a>
+                  <a class="nav-link" onclick="openModal()">Upload</a >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">
@@ -75,15 +76,24 @@
                       Me
                     </span>
                   </a>
+                  <div class="dropdown">
+                    <div class="column">
+                        <a href=" ">Favourate</a >
+                        <a href="#">Mistake</a >
+                    </div>
+                    </div>
                 </li>
-                <form class="form-inline justify-content-center">
-                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button>
-                </form>
               </ul>
             </div>
           </nav>
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Please upload your ECG</h2>
+                <input type="file" accept="image/*" id="fileInput">
+                <button onclick="submitImage()">Submit</button>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -137,7 +147,7 @@
         <div class="carousel-wrap ">
           <div class="service_owl-carousel owl-carousel">
             <div class="item">
-              <a href="chapter_1.html" style="color:black">
+              <a href="learn.html" style="color:black">
                 <div class="box ">
                   <div class="img-box">
                     <img src="../static/images/main_page/learn_icon.png" alt="" />
@@ -514,6 +524,8 @@
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
+  <script src="../static/assets/js/script.js"></script>
+  <!-- pop up window -->
 </body>
 
 </html>

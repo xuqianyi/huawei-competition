@@ -36,6 +36,31 @@ def randomly_select_data(num_question):
     conn.close()
     return data
 
+def get_days(user_id):
+    conn = create_connection()
+    try:
+        with conn.cursor() as cursor:
+            sql = "SELECT days FROM Plan WHERE user_id=%s;"
+            cursor.execute(sql, user_id)
+            day = cursor.fetchall()
+    except pymysql.err.OperationalError:
+        conn.close()
+        return -1, "Failed in inserting plan"
+    conn.close()
+    return day
+
+def insert_plan(user_id, num_qn, start_date, end_date, days):
+    conn = create_connection()
+    try:
+        with conn.cursor() as cursor:
+            sql = "INSERT INTO Plan (num_qn, start_date, end_date, days) VALUES (%s, %s, %s, %s)"
+            cursor.execute(sql, [str(num_qn), str(start_date), str(end_date), str(days)])
+            conn.commit()
+    except pymysql.err.OperationalError:
+        conn.close()
+        return -1, "Failed in inserting plan"
+    conn.close()
+    return 0, "Succeed in inserting plan"
 
 def insert_mistakes(user_id, question_ids):
     conn = create_connection()

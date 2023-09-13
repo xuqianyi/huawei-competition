@@ -704,7 +704,7 @@ a:focus {
 
 .contact_section {
   position: relative;
-  background-color: #f9f9f9;
+  background-color: white;
 }
 
 .contact_section .heading_container {
@@ -1146,3 +1146,103 @@ footer a:not(.nav-link) {
   .page-break {
     padding-top: 5rem;
     page-break-before: always; } }
+
+    .modal { 
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      padding-top: 100px; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.4); 
+     } 
+     
+      .modal-content { 
+      background-color: #fefefe; 
+      margin: auto; 
+      padding: 20px; 
+      border: 1px solid #888; 
+      width: 50%; 
+     } 
+     
+      .close { 
+      color: #aaa; 
+      float: right; 
+      font-size: 28px; 
+      font-weight: bold; 
+      cursor: pointer; 
+     } 
+     
+      .close:hover, .close:focus { 
+      color: black; 
+      text-decoration: none; 
+      cursor: pointer; 
+     } 
+     
+      .modal-content { 
+      background-color: #fefefe; 
+      margin: auto; 
+      padding: 20px; 
+      border: 1px solid #888; 
+      width: 50%; 
+      text-align: center; /* 让内容居中 */ 
+     } 
+     
+      button { 
+      margin-top: 20px; 
+      padding: 10px 15px; 
+      background-color: #007BFF; 
+      color: #FFF; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      transition: background-color 0.3s; 
+     } 
+     
+      button:hover { 
+      background-color: #0056b3; 
+     } 
+     
+      .nav-item { 
+      cursor: pointer !important; 
+      position: relative; 
+      display: inline-block; 
+      padding: 10px 15px; 
+      color: white; 
+     } 
+     
+      .dropdown { 
+      display: none; 
+      position: absolute; 
+      top: 100%; 
+      left: 0; 
+      background-color: #f9f9f9; 
+      min-width: 300px; 
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+      z-index: 1; 
+      border-radius: 2px; 
+     } 
+     
+      .column { 
+      float: left; 
+      width: 50%; /* 分两栏 */ 
+      padding: 10px; 
+     } 
+     
+      .column a { 
+      display: block; 
+      padding: 8px; 
+      text-decoration: none; 
+      color: black; 
+     } 
+     
+      .column a:hover { 
+      background-color: #ddd; 
+     } 
+     
+      .nav-item:hover .dropdown { 
+      display: block; 
+     } 
