@@ -1,0 +1,78 @@
+/* Scores Page CSS */
+
+.score-main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+}
+
+
+
+.score-head {
+    font-weight: 600;
+    margin-top: 30px;
+    font-style: bold;
+    color: #49535f;
+    
+}
+
+.score-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid #2c7873;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    margin-top: 15px;
+}
+
+.score-circle h1{
+    font-size: 50px;
+    border-radius: 50%;
+    padding: 20px;
+    
+    color: #49535f;
+}
+
+.congrats-cls{
+    margin-top: 15px;
+    font-style: bold;
+    color: #49535f;
+}
+
+.highest-score{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    border: 50px;
+    background-color: #2c7873;
+    color: #fff;
+    border: 2px solid #2c7873;
+    border-radius: 100px;
+    padding: 5px;
+    font-size: 26px;
+    width: 40%;
+}
+
+.high-score-name {
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 100px;
+    color: #49535f;
+    padding: 5px;
+    margin: 5px;
+    margin-left: 18px;
+}
+
+.redirect-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    width: 60%;
+}

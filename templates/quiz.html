@@ -1,44 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiple Choice Questionnaire</title>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="../static/images/main_page/logo.png" type="image/x-icon">
+    <title>ECGLearn</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- nice select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+    <!-- font awesome style -->
+    <link href="../static/assets/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="../static/assets/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../static/assets/css/responsive.css" rel="stylesheet" />
     <style>
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             padding: 20px;
-        }
+        } */
         .red {
             color: red;
         }
     </style>
     <link href="../static/assets/css/quizStyle.css" rel="stylesheet" />
 </head>
-<body>
-    <h2>Multiple Choice Questionnaire</h2>
+<body class="sub_page">
+    <div class="hero_area">
+        <div class="hero_bg_box">
+          <img src="../static/images/main_page/background.jpg" alt="">
+        </div>
+        <!-- header section strats -->
+        <header class="header_section">
+          <div class="header_bottom">
+            <div class="container-fluid">
+              <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand " href="/"> ECGLearn </a>
+                <!-- <img class="navbar-brand " src="images/main_page/logo.png"/> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class=""> </span>
+                </button>
     
-    <div id="question page">
-        <!-- Questions will be populated here by JavaScript -->
-    </div>
-
-
-    <div id="favorite">
-        <input id="favorite-button" type="button" value="favorite" onclick=favorite_question()>
-        </input>
-    </div>
-
-    <div id="feedback">
-        <input type="button" value="feedback" onclick=openModal()>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2>Please tell us your feedback for this question</h2>
-                <input type="text" id="textInput">
-                <button onclick="submitFeedback()">Submit</button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav  ">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/#about_section"> About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/learn">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/test">Test</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/plan_main">Study Plan</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link" onclick="openModal()">Upload</a >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>
+                          Me
+                        </span>
+                      </a>
+                      <div class="dropdown">
+                        <div class="column">
+                            <a href=" ">Favorite</a >
+                            <a href="#">Mistake</a >
+                        </div>
+                        </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <!-- <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Please upload your ECG</h2>
+                    <input type="file" accept="image/*" id="fileInput">
+                    <button onclick="submitImage()">Submit</button>
+                </div>
+              </div> -->
             </div>
           </div>
+        </header>
+        <!-- end header section -->
     </div>
+    <section class="service_section layout_padding">
+        <div class="container">
+          <div class="heading_container heading_center ">
+            <div id="question page">
+                <!-- Questions will be populated here by JavaScript -->
+            </div>
+            <div class="button-container">  
+              <div id="favorite">
+                  <input id="favorite-button" type="button" class="favorite-button" value="favorite" onclick=favorite_question()>
+                  </input>
+              </div>
+            
+              <div id="feedback">
+                  <input type="button" class="feedback-button" value="feedback" onclick=openModal()>
+                  <div id="myModal" class="feedback-modal">
+                      <div class="feedback-modal-content">
+                          <span class="close" onclick="closeModal()">&times;</span>
+                          <h2>Please tell us your feedback for this question</h2>
+                          <input type="text" id="textInput">
+                          <button onclick="submitImage()">Submit</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
 
     <script>
         // Questions and options stored in variables
@@ -78,12 +173,13 @@
 
         function createQuestionDiv() {
             const questionDiv = document.createElement('div');
-            const questionText = document.createElement('p');
+            const questionText = document.createElement('h3');
             const question = questions[index];
             questionText.textContent = (index + 1) + '. Please select the type of abnormality present in the electrocardiogram below';
             questionDiv.appendChild(questionText);
             questionDiv.id = 'questionsContainer';
             const picture = document.createElement('img');
+            picture.classList.add('quiz-image');
             picture.src = question.text;
             picture.alt = "Cheetah!";
             questionDiv.appendChild(picture);
@@ -93,6 +189,8 @@
             question.options.forEach((option, i) => {
                 const label = document.createElement('label');
                 const radio = document.createElement('input');
+                label.classList.add('choice-element');
+                radio.classList.add('choice-button');
                 radio.type = 'radio';
                 radio.name = 'q' + (index + 1);
                 radio.value = option;
@@ -110,12 +208,13 @@
 
             const nextPageDiv = document.createElement('div');
             const next_page = document.createElement('input');
+            next_page.classList.add('circle-button')
             next_page.type = 'button';
             if (index == questions.length - 1) {
-                next_page.value = 'finish all';
+                next_page.value = 'Submit';
                 next_page.onclick = finishAll;
             } else {
-                next_page.value = 'Next Page';
+                next_page.value = 'Next';
                 next_page.onclick = () => goToNextPage(1);
             }
             nextPageDiv.appendChild(next_page);
@@ -190,5 +289,6 @@
         // Call the function to populate questions on page load
         init();
     </script>
+<script src="../static/assets/js/script.js"></script>
 </body>
 </html>
