@@ -90,7 +90,27 @@
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h2>Please upload your ECG</h2>
-                <input type="file" accept="image/*" id="fileInput">
+                <div class="uploadFileBack">
+                  <div class="uploadFile">
+                    <span>+ Choose File</span>
+                    <input type="file" accept="image/*" id="fileInput">
+                  </div>
+                </div>
+                <div class="inputClass">
+                  <p class="input_info">Please select the diagnosis: </p>
+                  <select class="selectInput">
+                    <option>incomplete right bundle branch block</option>
+                    <option>first degree AV block</option>
+                    <option>non-specific intraventricular conduction disturbance (block)</option>
+                    <option>complete right bundle branch block</option>
+                    <option>complete left bundle branch block</option>
+                    <option>left posterior fascicular block</option>
+                    <option>Wolff-Parkinson-White syndrome</option>
+                    <option>incomplete left bundle branch block</option>
+                    <option>third degree AV block</option>
+                    <option>second degree AV block</option>
+                  </select>
+                </div>
                 <button onclick="submitImage()">Submit</button>
             </div>
           </div>

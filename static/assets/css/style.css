@@ -1159,14 +1159,7 @@ footer a:not(.nav-link) {
       overflow: auto; 
       background-color: rgba(0,0,0,0.4); 
      } 
-     
-      .modal-content { 
-      background-color: #fefefe; 
-      margin: auto; 
-      padding: 20px; 
-      border: 1px solid #888; 
-      width: 50%; 
-     } 
+
      
       .close { 
       color: #aaa; 
@@ -1186,11 +1179,75 @@ footer a:not(.nav-link) {
       background-color: #fefefe; 
       margin: auto; 
       padding: 20px; 
-      border: 1px solid #888; 
+      border: 1px solid #888;
       width: 50%; 
-      text-align: center; /* 让内容居中 */ 
-     } 
-     
+      text-align: center; /* 让内容居中 */ ;
+      height: 80%;
+     }
+
+
+.uploadFileBack {
+  width: 100%;  /*50 10*/
+  height: 50%;
+  background-color: #eeeeee;
+  line-height: 40px;
+  text-align: center;
+  color: #FFF;
+  border-radius: 3px;
+  /*border: 1px solid #999;*/
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto
+
+}
+
+.uploadFile {
+  width: 20%;
+  height: 10%;
+  background-color: #007BFF;
+  line-height: 150%;
+  text-align: center;
+  color: #FFF;
+  border-radius: 3px;
+  /*border: 1px solid #999;*/
+  position: relative;
+  bottom: -44%;
+  overflow: hidden;
+  margin: 0 auto
+
+}
+
+
+.uploadFileBack input {
+  margin: 0 auto;
+  background-color: #FFF;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  text-align: center; /* 让内容居中 */ ;
+}
+.inputClass{
+  margin: 0 auto;
+  position: relative;
+  bottom: -5%;
+}
+.input_info{
+  display: inline-block;
+  position: relative;
+  left: -60%;
+  bottom: -33%;
+
+}
+.selectInput{
+  display: inline-block;
+  position: relative;
+  left: 45%;
+  bottom: -15%;
+
+}
+
       button { 
       margin-top: 20px; 
       padding: 10px 15px; 
@@ -1199,7 +1256,10 @@ footer a:not(.nav-link) {
       border: none; 
       border-radius: 5px; 
       cursor: pointer; 
-      transition: background-color 0.3s; 
+      transition: background-color 0.3s;
+      height: 60px;
+      position: relative;
+        bottom: -10%;
      } 
      
       button:hover { 
@@ -1245,4 +1305,4 @@ footer a:not(.nav-link) {
      
       .nav-item:hover .dropdown { 
       display: block; 
-     } 
+     }
