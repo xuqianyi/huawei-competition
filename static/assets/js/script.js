@@ -15,3 +15,17 @@ window.onclick = function(event) {
 function submitImage() {
     closeModal();
 }
+
+document.getElementById('fileInput').addEventListener('change', function() {
+  const file = this.files[0];
+
+  if (file) {
+      const reader = new FileReader();
+
+      reader.addEventListener('load', function() {
+          document.getElementById('imagePreview').src = this.result;
+      });
+
+      reader.readAsDataURL(file);
+  }
+});

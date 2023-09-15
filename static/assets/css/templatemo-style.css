@@ -7,18 +7,16 @@ https://templatemo.com/tm-529-ramayana
 */
 
 
-@import url(fontawesome.css);
-@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700");
+/* @import url(fontawesome.css); */
+/* @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700"); */
 
-body {
-	font-family: 'Roboto Slab', sans-serif;
-}
+
 
 /* Basic */
 
-input, select, textarea {
+/* input, select, textarea {
 	outline: none;
-}
+} */
 
 a:hover {
 	color: #FC3;
@@ -37,29 +35,6 @@ h4 {
 	font-weight: 700;
 	color: #31323a;
 	letter-spacing: 0.25px;
-}
-
-img {
-	width: 100%;
-	overflow: hidden;
-}
-
-.primary-button a,
-button {
-	font-size: 14px;
-	font-weight: 700;
-	text-transform: uppercase;
-    background-color: transparent;
-	display: inline-block;
-	padding: 8px 20px;
-	color: #535ba0;
-	border: 2px solid #535ba0;
-	transition: all 0.5s;
-}
-.primary-button a:hover,
-button:hover {
-	color: #fff;
-	background-color: rgba(83,91,160,1);
 }
 
 section#search {
@@ -86,7 +61,6 @@ section {
     min-height: 100vh;
 }
 
-
 /* Main */
 
 #main {
@@ -103,145 +77,6 @@ section {
 
 #main > .inner {
     padding: 100px;
-}
-
-/* Banner */
-.main-banner .container-fluid {
-	padding-left: 0px;
-	padding-right: 0px;
-}
-.main-banner .banner-content {
-	background-image: url(../images/main-banner.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.main-banner .banner-content .banner-caption {
-    max-width: 450px;
-	background-color: rgba(250,250,250,0.95);
-	margin: 50px;
-	padding: 50px;
-}
-
-.main-banner .banner-content .banner-caption h4 {
-	font-size: 38px;
-	font-weight: 700;
-	color: #31323a;
-	letter-spacing: 0.25px;
-	margin: 0px;
-}
-
-.main-banner .banner-content .banner-caption em {
-	font-style: normal;
-	color: #535ba0;
-}
-
-.main-banner .banner-content .banner-caption span {
-	font-size: 15px;
-	color: #aaaaaa;
-	letter-spacing: 0.5px;
-	display: inline-block;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-.main-banner .banner-content .banner-caption p {
-	margin-bottom: 30px;
-}
-
-
-/* Services */
-
-.services {
-	margin-top: 100px;
-}
-
-.services .container-fluid {
-	padding-left: 13px;
-	padding-right: 13px;
-}
-
-.services .col-md-4 {
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
-.services .service-item {
-	margin-bottom: 3px;
-	background-color: #eaebef;
-	padding: 50px;
-	text-align: center;
-	transition: all 0.5s;
-}
-
-.services .service-item .icon {
-	width: 50px;
-	height: 50px;
-	display: inline-block;
-	margin-bottom: 30px;
-	background-size: cover;
-	background-repeat: no-repeat;
-	transition: all 0.5s;
-}
-
-.services .first-item .icon {
-	background-image: url(../images/icon_01.png);
-}
-.services .first-item:hover .icon {
-	background-image: url(../images/icon_hover_01.png);
-}
-
-.services .second-item .icon {
-	background-image: url(../images/icon_02.png);
-}
-.services .second-item:hover .icon {
-	background-image: url(../images/icon_hover_02.png);
-}
-
-.services .third-item .icon {
-	background-image: url(../images/icon_03.png);
-}
-.services .third-item:hover .icon {
-	background-image: url(../images/icon_hover_03.png);
-}
-
-.services .fourth-item .icon {
-	background-image: url(../images/icon_04.png);
-}
-.services .fourth-item:hover .icon {
-	background-image: url(../images/icon_hover_04.png);
-}
-
-.services .fivth-item .icon {
-	background-image: url(../images/icon_05.png);
-}
-.services .fivth-item:hover .icon {
-	background-image: url(../images/icon_hover_05.png);
-}
-
-.services .sixth-item .icon {
-	background-image: url(../images/icon_06.png);
-}
-.services .sixth-item:hover .icon {
-	background-image: url(../images/icon_hover_06.png);
-}
-
-.services .service-item:hover {
-	background-color: #535ba0;
-}
-.services .service-item:hover h4,
-.services .service-item:hover p {
-	color: #fff;
-}
-
-.services .service-item h4 {
-	margin-bottom: 20px;
-	transition: all 0.5s;
-}
-
-.services .service-item  p {
-	margin-bottom: 0px;
-	transition: all 0.5s;
 }
 
 /* Top Image */
@@ -400,7 +235,6 @@ section.contact-form {
     color: #fff;
     background-color: rgba(83,91,160,1);
 }
-
 
 /* Tables */
 
@@ -928,7 +762,7 @@ section.buttons .container-fluid {
     -webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
     -ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
     transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-    background-color: rgb(71, 69, 69);
+    background-color: white;
     position: relative;
     width: 420px;
 }
@@ -940,7 +774,7 @@ section.buttons .container-fluid {
 }
 
 #sidebar > .inner > #search  {
-    background-color: rgb(71, 69, 69);
+    background-color: white;
     height: 100px;
     width: 420px;
     display: inline-block;
@@ -952,7 +786,7 @@ section.buttons .container-fluid {
 	background-color: transparent;
 	border: none;
 	padding: 0px 50px;
-	color: #fff;
+	color: black;
 }
 
 #search form:before {
@@ -961,7 +795,7 @@ section.buttons .container-fluid {
     -webkit-transform: scaleX(-1);
     -ms-transform: scaleX(-1);
     transform: scaleX(-1);
-    color: #fff;
+    color: black;
     content: '\f002';
     cursor: default;
     display: block;
@@ -981,7 +815,7 @@ section.buttons .container-fluid {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     border: 0;
     display: block;
-    color: #fff;
+    color: black;
     height: 100px;
     left: 420px;
     line-height: 100px;
@@ -1085,7 +919,7 @@ section.buttons .container-fluid {
     }
     #sidebar .toggle:before {
         font-size: 1.5rem;
-        color: #fff;
+        color: black;
         background-color: rgba(83,91,160,0.75);
     }
     body.is-preload #sidebar {
@@ -1114,7 +948,7 @@ section.buttons .container-fluid {
         width: 7.25em;
     }
     #sidebar .toggle:before {
-        color: #fff;
+        color: black;
         margin-left: -0.0855em;
         margin-top: -0.25em;
         font-size: 20px;
@@ -1165,7 +999,7 @@ section.buttons .container-fluid {
 
 .featured-posts .heading h2 {
 	font-size: 19px;
-	color: #fff;
+	color: black;
 	border-bottom: 1px solid #2d2e39;
 	padding-bottom: 10px;
 	margin-bottom: 25px;
@@ -1173,7 +1007,7 @@ section.buttons .container-fluid {
 
 .featured-posts p {
 	margin-top: 20px;
-	color: #fff;
+	color: black;
 }
 
 .owl-carousel .owl-dots {
@@ -1203,7 +1037,7 @@ section.buttons .container-fluid {
     display: -ms-flex;
     display: flex;
     position: relative;
-    background-color: rgb(71, 69, 69);
+    background-color: white;
     margin: -100px -100px 100px -100px;
 }
 
@@ -1218,7 +1052,7 @@ section.buttons .container-fluid {
 	font-size: 36px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: #fff;
+	color: black;
 	font-weight: 700;
 	margin-right: 100px;
 }
@@ -1260,7 +1094,7 @@ section.buttons .container-fluid {
 
 #menu ul a,
 #menu ul span {
-	color: #fff;
+	color: black;
     border-bottom: 0;
     cursor: pointer;
     display: block;
@@ -1305,7 +1139,7 @@ section.buttons .container-fluid {
     -webkit-transition: color 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
     -ms-transition: color 0.2s ease-in-out, -ms-transform 0.2s ease-in-out;
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
-    color: #fff;
+    color: black;
     content: '\f078';
     position: absolute;
     right: 0;
@@ -1313,7 +1147,7 @@ section.buttons .container-fluid {
 
 #menu ul a.opener:hover:before,
 #menu ul span.opener:hover:before {
-    color: #535ba0;
+    color: #2c7873;
 }
 
 #menu ul a.opener.active + ul,

@@ -1004,95 +1004,6 @@ a:focus {
 }
 /*# sourceMappingURL=style.css.map */
 
-/* Timeline custom component */
-.timeline-card {
-  position: relative;
-  margin-left: 16px; }
-
-.timeline-card:before {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  background-color: #fff;
-  border-radius: 100%;
-  width: 24px;
-  height: 24px;
-  top: 16px;
-  left: -12px;
-  border: 5px solid;
-  z-index: 2; }
-
-.timeline-body {
-  border-left: 2px solid #E6E9ED; }
-
-.timeline-card-primary:before {
-  border-color: var(--bs-primary); }
-
-.timeline-card-info:before {
-  border-color: var(--bs-info); }
-
-.timeline-card-secondary:before {
-  border-color: var(--bs-secondary); }
-
-.timeline-card-success:before {
-  border-color: var(--bs-teal); }
-
-html {
-  scroll-behavior: smooth; }
-
-html, body {
-  overflow-x: hidden; }
-
-.container {
-  max-width: 1140px; }
-
-.site-title {
-  font-size: 1.25rem;
-  line-height: 2.5rem; }
-
-.nav-link {
-  padding: 0;
-  font-size: 1rem;
-  line-height: 2.5rem;
-  color: inherit;
-  opacity: 0.8; }
-
-.header-social .nav-link {
-  font-size: 1.25rem; }
-
-.nav-link:hover,
-.nav-link:focus {
-  color: inherit;
-  opacity: 1; }
-
-.nav-item + .nav-item {
-  margin-left: 1rem; }
-
-.cover {
-  height: 500px; }
-
-.cover > img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: auto; }
-
-.progress-bar {
-  text-transform: uppercase;
-  font-size: 10px;
-  letter-spacing: 1px; }
-
-.text-small {
-  font-size: 0.85rem; }
-
-.text-teal {
-  color: var(--bs-teal); }
-
-footer a:not(.nav-link) {
-  color: inherit;
-  border-bottom: 1px dashed;
-  text-decoration: none;
-  cursor: pointer; }
-
 @media (min-width: 48em) {
   .site-title {
     float: left; }
@@ -1182,7 +1093,7 @@ footer a:not(.nav-link) {
       border: 1px solid #888;
       width: 50%; 
       text-align: center; /* 让内容居中 */ ;
-      height: 80%;
+      /* height: 80%; */
      }
 
 
@@ -1198,13 +1109,12 @@ footer a:not(.nav-link) {
   position: relative;
   overflow: hidden;
   margin: 0 auto
-
 }
 
 .uploadFile {
   width: 20%;
   height: 10%;
-  background-color: #007BFF;
+  background-color: #2c7873;
   line-height: 150%;
   text-align: center;
   color: #FFF;
@@ -1248,61 +1158,71 @@ footer a:not(.nav-link) {
 
 }
 
-      button { 
-      margin-top: 20px; 
-      padding: 10px 15px; 
-      background-color: #007BFF; 
-      color: #FFF; 
-      border: none; 
-      border-radius: 5px; 
-      cursor: pointer; 
-      transition: background-color 0.3s;
-      height: 60px;
-      position: relative;
-        bottom: -10%;
-     } 
-     
-      button:hover { 
-      background-color: #0056b3; 
-     } 
-     
-      .nav-item { 
-      cursor: pointer !important; 
-      position: relative; 
-      display: inline-block; 
-      padding: 10px 15px; 
-      color: white; 
-     } 
-     
-      .dropdown { 
-      display: none; 
-      position: absolute; 
-      top: 100%; 
-      left: 0; 
-      background-color: #f9f9f9; 
-      min-width: 300px; 
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
-      z-index: 1; 
-      border-radius: 2px; 
-     } 
-     
-      .column { 
-      float: left; 
-      width: 50%; /* 分两栏 */ 
-      padding: 10px; 
-     } 
-     
-      .column a { 
-      display: block; 
-      padding: 8px; 
-      text-decoration: none; 
-      color: black; 
-     } 
-     
-      .column a:hover { 
-      background-color: #ddd; 
-     } 
-     
-      .nav-item:hover .dropdown { 
-      display: block; 
-     }
+button { 
+margin-top: 20px; 
+padding: 10px 15px; 
+background-color: #2c7873; 
+color: #FFF; 
+border: none; 
+border-radius: 5px; 
+cursor: pointer; 
+transition: background-color 0.3s;
+height: 60px;
+position: relative;
+  bottom: -10%;
+} 
+
+button:hover { 
+background-color: #e0e0e0; 
+} 
+
+.nav-item { 
+cursor: pointer !important; 
+position: relative; 
+display: inline-block; 
+padding: 10px 15px; 
+color: white; 
+} 
+
+.dropdown { 
+display: none; 
+position: absolute; 
+top: 100%; 
+left: 0; 
+background-color: #f9f9f9; 
+min-width: 300px; 
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+z-index: 1; 
+border-radius: 2px; 
+} 
+
+.column { 
+float: left; 
+width: 50%; /* 分两栏 */ 
+padding: 10px; 
+} 
+
+.column a { 
+display: block; 
+padding: 8px; 
+text-decoration: none; 
+color: black; 
+} 
+
+.column a:hover { 
+background-color: #ddd; 
+} 
+
+.nav-item:hover .dropdown { 
+display: block; 
+}
+.audio-player {
+background-color: #ffffff;
+border-radius: 10px;
+box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+padding: 20px;
+}
+
+audio {
+width: 100%;
+}

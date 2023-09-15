@@ -27,7 +27,7 @@ def test():
 
 @app.route('/report/<favorites>/<mistakes>/<score>/', methods=['POST', 'GET'])
 def report(favorites, mistakes, score):
-    return render_template('report.html', favorites = favorites, mistakes = mistakes, score = score)
+    return render_template('report.html', favorites = favorites, mistakes = mistakes, score = round(float(score), 1))
 
 @app.route('/quiz/<num_question>', methods=['POST', 'GET'])
 def quiz(num_question):
@@ -35,7 +35,7 @@ def quiz(num_question):
         print(request.form["favorites"])
         print(request.form["wrong"])
         print(request.form["score"])
-        return redirect(url_for("report", favorites = request.form["favorites"], mistakes = request.form["wrong"], score = request.form["score"]))
+        return redirect(url_for("report", favorites = request.form["favorites"], mistakes = request.form["wrong"], score = round(float(request.form["score"]), 1)))
     else:
         num_question = int(num_question)
         questions = randomly_select_data(num_question)
